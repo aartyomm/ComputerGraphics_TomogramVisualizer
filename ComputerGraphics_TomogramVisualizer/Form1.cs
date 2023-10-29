@@ -8,8 +8,6 @@ using System.Threading;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using OpenTK.Graphics.OpenGL;
-using Tomogram_Utilities;
-using View = Tomogram_Utilities.View;
 
 namespace ComputerGraphics_TomogramVisualizer
 {
@@ -22,7 +20,7 @@ namespace ComputerGraphics_TomogramVisualizer
             InitializeComponent();
         }
 
-        private void Open_ToolStripMenuItem_Click(object sender, EventArgs e)
+        private void îòêðûòüToolStripMenuItem_Click(object sender, EventArgs e)
         {
             OpenFileDialog ofd = new OpenFileDialog();
             if (ofd.ShowDialog() == DialogResult.OK)
@@ -118,7 +116,7 @@ namespace ComputerGraphics_TomogramVisualizer
 
         private void trackBar_Width_Scroll(object sender, EventArgs e)
         {
-            View.width = trackBar_Width.Value;
+            View.sr = trackBar_Width.Value;
             View.need_reload = true;
             glControl1.Invalidate();
         }
@@ -126,7 +124,7 @@ namespace ComputerGraphics_TomogramVisualizer
         private void Form1_Load(object sender, EventArgs e)
         {
             trackBar_Minimum.Value = View.min;
-            trackBar_Width.Value = View.width;
+            trackBar_Width.Value = View.sr;
         }
     }
 }
